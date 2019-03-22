@@ -97,8 +97,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     public void onResume() {
         Log.i("Map", "Map fragment OnResume called");
         super.onResume();
-        setUpEula();
-        findLocation();
+        //setUpEula();
+        //findLocation();
     }
 
     @Override
@@ -144,8 +144,8 @@ public class MapsFragment extends SupportMapFragment implements OnMapReadyCallba
     private void setUpEula() {
         Log.i("Map", "Map fragment setUpEula called");
         SharedPreferences mSettings = getActivity().getSharedPreferences(getString(R.string.prefs), 0);
-        boolean isEulaAccepted = mSettings.getBoolean(getString(R.string.eula_accepted_key),
-                false);
+        boolean isEulaAccepted = mSettings.getBoolean(getString(R.string.eula_accepted_key), false);
+
         if (!isEulaAccepted) {
             DialogFragment eulaDialogFragment= new EulaDialogFragment();
             eulaDialogFragment.show(getActivity().getSupportFragmentManager(), "eula");  }
